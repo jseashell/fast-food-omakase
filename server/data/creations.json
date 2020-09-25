@@ -1,0 +1,32 @@
+[
+    {
+        "id": "u0001",
+        "name": "McSex",
+        "image": "<image>",
+        "user": "Zack Obermeyer"
+    },
+    {
+        "id": "u0002",
+        "name": "Fire Nugs",
+        "image": "<image>",
+        "user": "Dustin Dang"
+    },
+    {
+        "id": "u0003",
+        "name": "Chick-fil-A",
+        "image": "<image>",
+        "user": "Dan Do"
+    },
+    {
+        "id": "u0004",
+        "name": "In-n-Out",
+        "image": "<image>",
+        "user": "Chirag Masekar"
+    },
+    {
+        "id": "u0005",
+        "name": "Taco Bell",
+        "image": "<image>",
+        "user": "John Schellinger"
+    }
+]
