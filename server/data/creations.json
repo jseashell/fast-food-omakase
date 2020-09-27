@@ -2,31 +2,31 @@
     {
         "id": "u0001",
         "name": "McSex",
-        "image": "<image>",
+        "imageId": "mcsex",
         "user": "Zack Obermeyer"
     },
     {
         "id": "u0002",
         "name": "Fire Nugs",
-        "image": "<image>",
+        "imageId": "mcsex",
         "user": "Dustin Dang"
     },
     {
         "id": "u0003",
         "name": "Chick-fil-A",
-        "image": "<image>",
+        "imageId": "mcsex",
         "user": "Dan Do"
     },
     {
         "id": "u0004",
         "name": "In-n-Out",
-        "image": "<image>",
+        "imageId": "mcsex",
         "user": "Chirag Masekar"
     },
     {
         "id": "u0005",
         "name": "Taco Bell",
-        "image": "<image>",
+        "imageId": "quesordita",
         "user": "John Schellinger"
     }
 ]

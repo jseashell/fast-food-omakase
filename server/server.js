@@ -11,6 +11,7 @@ const cors = require('cors')
 // Import routes
 const homeRouter = require('./routes/home-route')
 const creationsRouter = require('./routes/creations-route')
+const imageRouter = require('./routes/image-route')
 
 // Setup default port
 const PORT = process.env.PORT || 4000
@@ -26,6 +27,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(bodyParser.json())
+app.use(express.static('public'));
 
 if (process.env.NODE_ENV && process.env.NODE_ENV !== 'development') {
     app.get('*', (req, res) => {
@@ -38,9 +40,11 @@ app.use('/api', homeRouter)
 
 // Implement route for '/users' endpoint
 // ! Note:
-// '/users' will prefix all post routes
-// with '/creations' => '/all' will become '/users/all'
+// '/creations' will prefix all post routes
+// with '/creations' => '/all' will become '/creations/all'
 app.use('/creations', creationsRouter)
+
+app.use('/image', imageRouter)
 
 // Implement route for errors
 app.use((err, req, res, next) => {
