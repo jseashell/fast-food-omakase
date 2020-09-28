@@ -16,23 +16,10 @@ export default class Creation extends React.Component {
             id: this.props.id
         });
 
-        console.log('fetching image: ' + path)
-
         fetch(path)
-            .then(res => {
-                const blobData = res.blob();
-                console.log('received blob: ' + blobData);
-                return blobData;
-            })
-            .then(blob => {
-                const objUrl = URL.createObjectURL(blob);
-                console.log('created obj url');
-                return objUrl;
-            })
-            .then(image => {
-                this.setState({ image: image })
-                console.log('set state.image: ' + image);
-            });
+            .then(res => res.blob())
+            .then(blob => URL.createObjectURL(blob))
+            .then(image => this.setState({ image: image }));
     }
 
     render() {
