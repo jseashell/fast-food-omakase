@@ -13,10 +13,6 @@ export default class Creation extends React.Component {
         }
     }
 
-    displayModal() {
-        this.setState({ displayModal: true });
-    }
-
     componentDidMount() {
         const path = '/creation/image?' + new URLSearchParams({
             id: this.props.id
