@@ -12,7 +12,7 @@ export default class Creation extends React.Component {
     }
 
     componentDidMount() {
-        const path = '/image?' + new URLSearchParams({
+        const path = '/creation/image?' + new URLSearchParams({
             id: this.props.id
         });
 

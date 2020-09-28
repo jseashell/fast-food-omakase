@@ -1,3 +1,3 @@
 exports.homeGet = async (req, res) => {
-    res.send('Welcome back.')
-}
+    res.send('Welcome back.');
+};

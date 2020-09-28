@@ -1,18 +1,17 @@
 // Import express framework
-const express = require('express')
+const express = require('express');
 
 // Import middleware
-const bodyParser = require('body-parser')
-const cookieParser = require('cookie-parser')
-const compression = require('compression')
-const helmet = require('helmet')
-const cors = require('cors')
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const compression = require('compression');
+const helmet = require('helmet');
+const cors = require('cors');
 const logger = require('morgan');
 
 // Import routes
-const homeRouter = require('./routes/home-route')
-const creationsRouter = require('./routes/creations-route')
-const imageRouter = require('./routes/image-route')
+const homeRouter = require('./routes/home-route');
+const creationRouter = require('./routes/creation-route');
 
 // Setup default port
 const PORT = process.env.PORT || 4000
@@ -37,16 +36,8 @@ if (process.env.NODE_ENV && process.env.NODE_ENV !== 'development') {
     })
 }
 
-// Implement route for '/api' endpoint
 app.use('/api', homeRouter)
-
-// Implement route for '/users' endpoint
-// ! Note:
-// '/creations' will prefix all post routes
-// with '/creations' => '/all' will become '/creations/all'
-app.use('/creations', creationsRouter)
-
-app.use('/image', imageRouter)
+app.use('/creation', creationRouter)
 
 // Implement route for errors
 app.use((err, req, res, next) => {

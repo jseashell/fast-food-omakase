@@ -12,7 +12,7 @@ export default class CreationGrid extends React.Component {
     }
 
     componentDidMount() {
-        fetch('/creations/all')
+        fetch('/creation/all')
             .then(res => res.json())
             .then(data => this.setState({ creations: data }));
     }
