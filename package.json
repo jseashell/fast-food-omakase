@@ -19,6 +19,7 @@
     "cross-env": "^7.0.2",
     "express": "^4.17.1",
     "helmet": "^4.1.1",
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.4",
     "react": "^16.13.1",
     "react-bootstrap": "^1.3.0",
@@ -27,7 +28,7 @@
   },
   "proxy": "http://localhost:4000",
   "scripts": {
-    "run-dev": "npm run build & npm run start",
+    "dev": "set DEBUG=express:* & npm run build & npm run start",
     "build": "node ./buildScript",
     "start": "concurrently \"npm run start-server\" \"npm run start-front\" --kill-others",
     "start-server": "cross-env NODE_ENV=development nodemon ./server/server.js --watch server",

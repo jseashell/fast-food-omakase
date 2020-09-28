@@ -7,14 +7,32 @@ export default class Creation extends React.Component {
     constructor() {
         super();
         this.state = {
-            image: ""
+            image: null
         }
     }
+
     componentDidMount() {
-        fetch('/image?id=' + this.props.id)
-            .then(res => res.blob)
-            .then(blob => URL.createObjectURL(blob))
-            .then(image => this.setState({ image: image }))
+        const path = '/image?' + new URLSearchParams({
+            id: this.props.id
+        });
+
+        console.log('fetching image: ' + path)
+
+        fetch(path)
+            .then(res => {
+                const blobData = res.blob();
+                console.log('received blob: ' + blobData);
+                return blobData;
+            })
+            .then(blob => {
+                const objUrl = URL.createObjectURL(blob);
+                console.log('created obj url');
+                return objUrl;
+            })
+            .then(image => {
+                this.setState({ image: image })
+                console.log('set state.image: ' + image);
+            });
     }
 
     render() {
@@ -24,7 +42,7 @@ export default class Creation extends React.Component {
                 <Card.Body>
                     <Card.Title>{this.props.name}</Card.Title>
                     <Card.Text>Posted by: {this.props.user}</Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
+                    <Button variant="primary">Open</Button>
                 </Card.Body>
             </Card>
         );
