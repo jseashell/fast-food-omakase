@@ -39,8 +39,12 @@ body {
 }
 
 .creation-card {
-  width: 25%;
   margin: 1rem;
+}
+
+.creation-card > img {
+  width: 270px;
+  height: 270px;
 }
 
 .creation {
