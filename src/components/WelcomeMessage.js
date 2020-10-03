@@ -1,5 +1,10 @@
 import React from 'react';
 
+import {
+    Jumbotron,
+    Container
+} from 'react-bootstrap';
+
 export default class WelcomeMessage extends React.Component {
     constructor() {
         super();
@@ -7,6 +12,7 @@ export default class WelcomeMessage extends React.Component {
             message: ""
         }
     }
+
     componentDidMount() {
         fetch('/api')
             .then(res => res.text())
@@ -15,7 +21,14 @@ export default class WelcomeMessage extends React.Component {
 
     render() {
         return (
-            <p>{this.state.message}</p>
+            <div>
+                <Jumbotron fluid>
+                    <Container>
+                        <h1>{this.state.message}</h1>
+                        <p>We're happy to have you. Enjoy :)</p>
+                    </Container>
+                </Jumbotron>
+            </div>
         );
     }
 }

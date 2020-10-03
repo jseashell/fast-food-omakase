@@ -1,17 +1,19 @@
 import React from 'react';
 
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/FormControl';
-import Button from 'react-bootstrap/Button';
+import {
+    Container,
+    Navbar,
+    Nav,
+    NavDropdown,
+    Form,
+    FormControl,
+    Button
+} from 'react-bootstrap';
 
 export default class Header extends React.Component {
     render() {
         return (
-            <div className="header">
+            <div>
                 <Navbar bg="light" expand="lg">
                     <Container>
                         <Navbar.Brand href="#home">{this.props.title}</Navbar.Brand>

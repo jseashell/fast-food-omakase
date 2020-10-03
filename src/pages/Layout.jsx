@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import WelcomeMessage from '../components/WelcomeMessage';
 import Footer from '../components/Footer';
 
-import CreationGrid from '../components/CreationGrid';
+import PostGrid from '../components/PostGrid';
 
 export default class Layout extends React.Component {
     render() {
@@ -12,7 +12,7 @@ export default class Layout extends React.Component {
             <div>
                 <Header title={this.props.title} />
                 <WelcomeMessage />
-                <CreationGrid />
+                <PostGrid />
                 <Footer />
             </div >
         );

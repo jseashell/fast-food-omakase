@@ -1,52 +1,55 @@
 import React from 'react';
 
-import Card from 'react-bootstrap/Card';
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
+import {
+    Card,
+    Modal,
+    Button
+} from 'react-bootstrap';
 
-export default class Creation extends React.Component {
+export default class Post extends React.Component {
     constructor() {
         super();
         this.state = {
             displayModal: false,
-            image: null
+            imageSrc: null
         }
     }
 
     componentDidMount() {
-        const path = '/creation/image?' + new URLSearchParams({
-            id: this.props.id
+        const path = '/post/image?' + new URLSearchParams({
+            id: this.props.image
         });
 
         fetch(path)
-            .then(res => res.blob())
-            .then(blob => URL.createObjectURL(blob))
-            .then(image => this.setState({ image: image }));
+            .then(res => res.json())
+            .then(json => {
+                this.setState({ imageSrc: json.imageSrc });
+            });
     }
 
     // TODO the modal needs to be shown on the parent component, the CreationGrid. HOW?!?!?!
     render() {
         return (
             <div>
-                <Card key={this.props.id} className="creation-card">
-                    <Card.Img variant="top" src={this.state.image} />
+                <Card key={this.props.id} className="post">
+                    <Card.Img variant="top" src={this.state.imageSrc} />
                     <Card.Body>
                         <Card.Title>{this.props.name}</Card.Title>
-                        <Card.Text>Posted by: {this.props.user}</Card.Text>
                         <Button variant="primary" onClick={() => this.setState({ displayModal: true })}>View</Button>
                     </Card.Body>
+                    <Card.Footer>
+                        <small className="text-muted">{this.props.user}</small>
+                    </Card.Footer>
                 </Card>
                 {this.state.displayModal &&
-                    <Modal show="false" backdrop="static" onHide={() => this.setState({ displayModal: false })}>
+                    <Modal show={false} backdrop="static" onHide={() => this.setState({ displayModal: false })}>
                         <Modal.Header closeButton>
                             <Modal.Title>{this.props.name}</Modal.Title>
                         </Modal.Header>
-
                         <Modal.Body>
-                            <img src={this.state.image} alt=""></img>
-                            <p>Posted by: {this.props.user}</p>
+                            <img src={this.state.imageSrc} alt=""></img>
+                            <p>{this.props.user}</p>
                         </Modal.Body>
-
                         <Modal.Footer>
                             <Button variant="secondary" onClick={() => this.setState({ displayModal: false })}>Close</Button>
                         </Modal.Footer>
